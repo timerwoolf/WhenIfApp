@@ -1,5 +1,7 @@
 .vs/
-WebApplication1/[Bb]in
+packages/
+WebApplication1/obj/
+WebApplication1/[Bb]in*/
 WebApplication1/[Dd]ebug*/
 WebApplication1/[Rr]elease*/
-WebApplication1/App_Data
+WebApplication1/App_Data/

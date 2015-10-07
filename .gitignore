@@ -1,9 +1,5 @@
-packages/
 .vs/
-WebApplication1/obj/
 WebApplication1/[Bb]in
 WebApplication1/[Dd]ebug*/
 WebApplication1/[Rr]elease*/
-WebApplication1/App_Data/
-*.log
-*.lib
+WebApplication1/App_Data

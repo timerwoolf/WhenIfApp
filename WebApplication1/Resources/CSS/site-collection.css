@@ -222,7 +222,10 @@ dd {
 	border-bottom: 1px solid #afafaa;
 	border-right: 1px solid #afafaa;
 	background: #ecf0eb;
-	overflow:auto;
+	overflow:-botottom: 35px;}
+
+#fcontntainer{min-height:100px;}
+
 	}
 
 .login-center{

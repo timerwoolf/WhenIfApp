@@ -49,11 +49,12 @@
 				
 		<div class="buttonHolder ctrlHolder"> 
 			<input type="hidden" name="_eventId" value="submit"/>
+        
 			&nbsp;<asp:Button ID="Login" runat="server" Text="   Login   " OnClick="LogIn_user" BackColor="#70C600" CssClass="btn-submit" Font-Bold="True" Font-Size="Small"/>
             <div class="checkbox">
                <asp:CheckBox runat="server" ID="RememberMe" />
                <asp:Label runat="server" AssociatedControlID="RememberMe">Remember me?</asp:Label>
-            </div>
+            </div>   
               <p>
                   <a href="/Account/Register">Register as new user</a>
               </p>

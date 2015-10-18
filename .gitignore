@@ -1,3 +1,4 @@
+*.suo
 .vs/
 packages/
 WebApplication1/obj/

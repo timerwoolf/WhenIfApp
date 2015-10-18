@@ -6,6 +6,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Owin;
 using WebApplication1.Models;
+using System.Data.SqlClient;
 
 namespace WebApplication1.Account
 {
@@ -17,8 +18,14 @@ namespace WebApplication1.Account
             var signInManager = Context.GetOwinContext().Get<ApplicationSignInManager>();
             var user = new ApplicationUser() { UserName = UserName.Text, Email = Email.Text };
             IdentityResult result = manager.Create(user, Password.Text);
+
+
+         
+
+
             if (result.Succeeded)
             {
+            
                 // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                 //string code = manager.GenerateEmailConfirmationToken(user.Id);
                 //string callbackUrl = IdentityHelper.GetUserConfirmationRedirectUrl(code, user.Id, Request);

@@ -12,7 +12,10 @@ namespace WebApplication1.Account
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            if (User.Identity.IsAuthenticated) // if the user is already logged in
+            {
+                Response.Redirect("/");
+            }
         }
 
         protected void LogIn_user(object sender, EventArgs e)

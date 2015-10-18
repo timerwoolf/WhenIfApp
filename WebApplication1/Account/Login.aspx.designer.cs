@@ -46,7 +46,7 @@ namespace WebApplication1.Account {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Login;
+        protected global::System.Web.UI.WebControls.Button BtnLogin;
         
         /// <summary>
         /// RememberMe control.

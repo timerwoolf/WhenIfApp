@@ -14,7 +14,7 @@ namespace WebApplication1.Account
         {
             if (User.Identity.IsAuthenticated) // if the user is already logged in
             {
-                Response.Redirect("/");
+                Response.Redirect("~/", false);
             }
         }
 

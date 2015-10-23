@@ -5,6 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Register</title>
+    <link href="../Resources/Content/bootstrap.css" rel="stylesheet" type="text/css" />
     <link href="../Resources/CSS/site-collection.css" rel="stylesheet" type="text/css" />
 </head>
 <body>

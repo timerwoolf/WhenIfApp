@@ -20,8 +20,24 @@ namespace WebApplication1.Account
             IdentityResult result = manager.Create(user, Password.Text);
 
 
-         
+            try
+            {
+                SqlConnection MyConnection = new SqlConnection("Data Source=cpeake.asuscomm.com;Integrated Security=False;User ID=matthew;Password=matthew;Connect Timeout=15;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False; Initial Catalog=WhenIf_Data;");
 
+                string sql = "UPDATE [dbo].[AspNetUsers] SET DEPAULID = @DEPAULID WHERE USERNAME = @USERNAME";
+                MyConnection.Open();
+                SqlCommand cmd = new SqlCommand(sql, MyConnection);
+                cmd.Parameters.Add("@DEPAULID", System.Data.SqlDbType.VarChar);
+                cmd.Parameters.Add("@USERNAME", System.Data.SqlDbType.VarChar);
+                cmd.Parameters["@DEPAULID"].Value = DepaulId.Text;
+                cmd.Parameters["@USERNAME"].Value = UserName.Text;
+                cmd.ExecuteNonQuery();
+
+
+            } catch (Exception exception) {
+                ErrorMessage.Text = exception.ToString();
+            }
+            
 
             if (result.Succeeded)
             {

@@ -17,6 +17,17 @@ body {
 /* Anchor styles */
 
 
+.navbar-inverse {
+    background-image: url('../images/NavbarBG.png');
+    border-color: #080808;
+}
+
+
+#navbar-background {
+  background-image: url('../images/NavbarBG.png');
+  border-color: #080808;
+}
+
 #signin_instruct a:hover {
 	color: #005C96;
 }

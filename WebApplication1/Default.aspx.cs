@@ -11,12 +11,15 @@ namespace WebApplication1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!User.Identity.IsAuthenticated) // if the user is already logged in
+            {
+                Response.Redirect("~/Account/Login", false);
+            }
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            Response.Redirect("/Account/Register");
+            Response.Redirect("~/Account/Register", false);
         }
     }
 }

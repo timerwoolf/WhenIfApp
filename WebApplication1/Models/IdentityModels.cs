@@ -88,11 +88,11 @@ namespace WebApplication1
         {
             if (!String.IsNullOrEmpty(returnUrl) && IsLocalUrl(returnUrl))
             {
-                response.Redirect(returnUrl);
+                response.Redirect(returnUrl, false);
             }
             else
             {
-                response.Redirect("~/");
+                response.Redirect("~/", false);
             }
         }
     }

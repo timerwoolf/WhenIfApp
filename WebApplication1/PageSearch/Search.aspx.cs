@@ -55,9 +55,9 @@ namespace WebApplication1.PageSearch
                 cmd.Parameters.Add("@course", System.Data.SqlDbType.VarChar);
                 cmd.Parameters["@course"].Value = course;
                 rdr = cmd.ExecuteReader();
-                
-                if (rdr.HasRows )
-                    { if (rdr.GetBoolean(qtr)) ret.Add(course); }
+                Console.WriteLine("Classes Offered" + course);
+                while (rdr.Read())
+                    {  if (rdr.GetBoolean(qtr)) ret.Add(course); }
 
                 if (cmd != null) cmd.Dispose();
                 if (MyConnection != null) MyConnection.Close();
@@ -96,9 +96,9 @@ namespace WebApplication1.PageSearch
             else date[1] = date[1] + 1;
             return date;
         }
-        protected int areaN = 4;
-        protected int electiveN = 4;
-        protected List<string> studentHistory = new List<string>();
+        int areaN = 4;
+        int electiveN = 4;
+        List<string> studentHistory = new List<string>();
 
         protected List<string> dataScience = new List<string>(){ "CSC423", "CSC424", "CSC425", "CSC433", "CSC465", "CSC478",
                "CSC481", "CSC482", "CSC495", "CSC529", "CSC555", "CSC575", "CSC578"};
@@ -174,13 +174,29 @@ namespace WebApplication1.PageSearch
             return currentClasses;
         }
         List<int> date = new List<int>() { 2014, 1};
+        protected void run_search2(object sender, EventArgs e)
+        {
+            List<string> qtrClasses = new List<string>();
+            int i = 0;
+            string txt = "";
+            qtrClasses = search("degree1", date, 3);
 
+            foreach (string qte in qtrClasses)
+            {
+                txt = txt + "   " + qte;
+            }
+
+            ErrorMessage.Text = txt;
+        }
         protected void run_search(object sender, EventArgs e)
         {
             List<string> needed = new List<string>();
             List<string> qtrClasses = new List<string>();
             int i = 0;
             string txt = "";
+
+            ErrorMessage.Text = "Before Needed 1";
+            Console.WriteLine("before needed 1");
             foreach (string cl in classesNeeded(studentHistory, introCourses))
             {
                 needed.Add(cl);
@@ -190,7 +206,8 @@ namespace WebApplication1.PageSearch
                 needed.Add(cl);
             }
 
-            while (needed.Count() > 0 || electiveN > 0 || areaN > 0)
+            //while (electiveN > 0 || areaN > 0)
+              while (needed.Count() > 0 || electiveN > 0 || areaN > 0)
             {
                 i = i + 1;
                 txt = txt + "Qtr#" + i + "  ";
@@ -199,6 +216,7 @@ namespace WebApplication1.PageSearch
                 foreach (string qtr in qtrClasses)
                 {
                     txt = txt + qtr + "  ";
+                    studentHistory.Add(qtr);
                 }
 
                 incrementDate(date);
@@ -222,8 +240,24 @@ namespace WebApplication1.PageSearch
                                 { "csc400", "csc401", "csc402", "csc403" };
             List<string> need = new List<string>()
                                 { "csc400", "csc401", "csc402", "csc406", "csc407", "csc421" };
+            Console.WriteLine("before needed 1");
             string txt = "";
             foreach (string cl in classesNeeded(have, need))
+            {
+                txt = txt + "  " + cl;
+            }
+            ErrorMessage.Text = txt;
+        }
+        protected void test_run2(object sender, EventArgs e)
+        {
+            List<string> have = new List<string>()
+                                { "csc400", "csc401", "csc402", "csc403" };
+            List<string> need = new List<string>()
+                                { "csc400", "csc401", "csc402", "csc406", "csc407", "csc421" };
+
+            Console.WriteLine("before needed 1");
+            string txt = "";
+            foreach (string cl in ClassesOffered(need, date))
             {
                 txt = txt + "  " + cl;
             }
@@ -232,6 +266,7 @@ namespace WebApplication1.PageSearch
         protected void Page_Load(object sender, EventArgs e)
         {
             string str = "";
+            ErrorMessage.Text = "PAge load pre";
             try
             {
                 SqlConnection MyConnection = new SqlConnection("Data Source=cpeake.asuscomm.com;Integrated Security=False;User ID=matthew;Password=matthew;Connect Timeout=15;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False; Initial Catalog=WhenIf_Data;");

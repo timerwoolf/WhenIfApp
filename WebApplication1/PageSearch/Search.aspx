@@ -37,7 +37,7 @@
         <p>
             <asp:Button ID="RegisterBtn" runat="server" Text="   run Search   " OnClick="run_search" BackColor="#70C600" CssClass="btn-submit" Font-Bold="True" Font-Size="Small"/>
  
-            <asp:Button ID="RegisterBtn0" runat="server" Text="   testrun   " OnClick="test_run" BackColor="#70C600" CssClass="btn-submit" Font-Bold="True" Font-Size="Small"/>
+            <asp:Button ID="RegisterBtn0" runat="server" Text="   single qtr   " OnClick="run_search2" BackColor="#70C600" CssClass="btn-submit" Font-Bold="True" Font-Size="Small"/>
  
 		</p>
         <p>

@@ -17,7 +17,17 @@ body {
 .dl-horizontal dt {
     white-space: normal;
 }
+a:hover, a:active {
+    background-color: #7db9e8;
+    color: #e0e0e0;
+}
 
+a:link, a.visited {
+    display: block;
+    color: #FFFFFF;
+
+
+}
 /* Set widths on the form inputs since otherwise they're 100% wide */
 input[type="text"],
 input[type="password"],

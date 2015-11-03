@@ -39,8 +39,8 @@ namespace WebApplication1
 
             SqlConnection MyConnection = new SqlConnection("Data Source=cpeake.asuscomm.com;Integrated Security=False;User ID=matthew;Password=matthew;Connect Timeout=15;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False; Initial Catalog=WhenIf_Data;");
    
-            string query = "SELECT * FROM test.course" +
-            "WHERE courseID = '@SEARCH_STRING'";
+            string query = "SELECT * FROM test.course " +
+            "WHERE courseID like '%@SEARCH_STRING%'";
 
             SqlCommand cmd = new SqlCommand(query, MyConnection);
             cmd.Parameters.Add("@SEARCH_STRING", System.Data.SqlDbType.VarChar);
@@ -54,9 +54,10 @@ namespace WebApplication1
             MyConnection.Close();
             da.Dispose();
 
+            
             foreach (DataRow row in results.Rows)
             {
-                resultBox.Text += row["CourseID"].ToString();
+                resultBox.Text = row["CourseID"].ToString();
             }
         }
     }

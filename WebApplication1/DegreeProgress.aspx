@@ -5,12 +5,10 @@
     <div class="jumbotron">
         <section id="calculator-app">
             <div id="calc-tabs">
-                TABS
+                DePaul When If
                 <ul>
                   <li><a href="DegreeProgress">Degree Progress</a></li>
                   <li><a href="Calculator">Calculator</a></li>
-                  <li><a href="#contact">Contact</a></li>
-                  <li><a href="#about">About</a></li>
                 </ul>
             </div>
              <div id="calc-title">
@@ -18,8 +16,13 @@
 
             </div>
             <div id="calc-results">
-                Functions and list of classes goes here
-
+                Functions and list of classes goes here <br>
+                <asp:TextBox runat="server" ID="searchString" CssClass="form-control" TextMode="SingleLine" />
+                  <asp:RequiredFieldValidator runat="server" ControlToValidate="searchString"
+                    CssClass="text-danger" ErrorMessage="The search field is required." />
+                <asp:TextBox runat="server" ID="resultBox" CssClass="form-control" TextMode="Search" readonly="true" />
+                &nbsp;<asp:Button ID="searchBtn" runat="server" Text="   Search   " OnClick="ClassSearch" BackColor="#70C600" CssClass="btn-submit" Font-Bold="True" Font-Size="Small"/>
+ 
             </div>
         </section>
     </div>

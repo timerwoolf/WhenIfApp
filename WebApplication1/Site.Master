@@ -11,10 +11,12 @@
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
- 
+
     <webopt:bundlereference runat="server" path="~/Content/css" />
+    <webopt:bundlereference runat="server" path="~/Resources/CSS" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-    <link href="../Resources/CSS/site-collection.css" rel="stylesheet" type="text/css" />
+    <link href="~/Resources/CSS/site-collection.css" rel="stylesheet" type="text/css" />
+
 </head>
 <body>
     <form runat="server">
@@ -61,7 +63,7 @@
                                 <a class="navbar-brand" runat="server" href="~/">Depaul When If Calculator</a>
                             </div>
                             <ul class="nav navbar-nav">
-                                <li><a runat="server" href="~/">Home</a></li>
+                                <li><a runat="server" href="~/Calculator">Calculator</a></li>
                                 <li><a runat="server" href="~/About">About</a></li>
                                 <li><a runat="server" href="~/Contact">Contact</a></li>
                             </ul>

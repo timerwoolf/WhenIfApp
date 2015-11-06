@@ -16,17 +16,22 @@
 
             </div>
             <div id="calc-results" >
-                Functions and list of classes goes here <br>
+                Search for classes and add them to your degree <br>
                 <asp:TextBox runat="server" ID="searchString" CssClass="form-control" TextMode="SingleLine" />
-                  <asp:RequiredFieldValidator runat="server" ControlToValidate="searchString"
-                    CssClass="text-danger" ErrorMessage="The search field is required." />
-                
-                <asp:ListBox ID="resultsBox" runat="server" CssClass="resultBox" style=" width: 60%;  margin: auto;" >
+               
+                &nbsp;&nbsp;&nbsp;<asp:Button ID="searchBtn" runat="server" Text="   Search   " OnClick="ClassSearch" BackColor="#70C600" CssClass="btn-submit" Font-Bold="True" Font-Size="Small" style=" left:50%;"/>
+                <br  />
+                <asp:ListBox name="resultBox" ID="resultsBox" runat="server" CssClass="resultBox" style=" width: 60%;  margin: auto;" >
                 </asp:ListBox><br />
                 <br />
-                <br />
-                &nbsp;<asp:Button ID="searchBtn" runat="server" Text="   Search   " OnClick="ClassSearch" BackColor="#70C600" CssClass="btn-submit" Font-Bold="True" Font-Size="Small" style=" left:50%"/>
- 
+               &nbsp;&nbsp;&nbsp;<asp:Button ID="Add" runat="server" Text=" Add Class " OnClick="addClass" BackColor="#70C600" CssClass="btn-submit" Font-Bold="True" Font-Size="Small" style=" left:50%;" />
+               <br  />
+                 <asp:ListBox ID="savedBox" runat="server" CssClass="resultBox" style=" width: 60%;  margin: auto; float: left; display:inline;" >
+                </asp:ListBox><br />    
+                <br />   
+                &nbsp;&nbsp;&nbsp;<asp:Button ID="DeleteBtn" runat="server" Text=" Delete Class " OnClick="deleteClass" BackColor="#70C600" CssClass="btn-submit" Font-Bold="True" Font-Size="Small" style=" left:50%;" />        
+               &nbsp;&nbsp;&nbsp;<asp:Button ID="SaveBtn" runat="server" Text=" Save Degree " OnClick="saveClasses" BackColor="#70C600" CssClass="btn-submit" Font-Bold="True" Font-Size="Small" style=" left:50%;" />
+                
             </div>
         </section>
     </div>

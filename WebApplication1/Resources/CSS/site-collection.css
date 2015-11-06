@@ -29,6 +29,13 @@ a:link, a.visited, a {
 
 }
 
+.resultBox
+{
+    font-size:12pt;
+    font-family:Verdana;
+    float: left
+}
+
 #calc-title{
     background-color:#afafaa;
     height: 35px;

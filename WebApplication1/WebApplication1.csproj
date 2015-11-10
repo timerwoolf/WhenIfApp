@@ -180,6 +180,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Account\Web.config" />
+    <Content Include="PageSearch\Search.aspx" />
     <Content Include="Resources\images\NavbarBG.png" />
     <Content Include="WebForm1.aspx" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -378,6 +379,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="PageSearch\Search.aspx.cs">
+      <DependentUpon>Search.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PageSearch\Search.aspx.designer.cs">
+      <DependentUpon>Search.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Account\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>

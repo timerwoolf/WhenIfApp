@@ -16,7 +16,7 @@
 
             </div>
             <div id="calc-results">
-                RESULTS go here
+                <iframe name="myIframe" src="~/PageSearch/Search" id="myIframe" height="400px" runat =server style="width: 278px"></iframe>
 
             </div>
         </section>

@@ -210,6 +210,7 @@ namespace WebApplication1.PageSearch
                 currentClasses.Add(course);
                 count = count - 1;
             }
+            foreach (string cl in currentClasses) { studentHistory.Add(cl); }
 
             //core classes
             needed = ClassesOffered(classesNeeded(studentHistory, degreeReqs), date);
@@ -220,6 +221,7 @@ namespace WebApplication1.PageSearch
                 currentClasses.Add(course);
                 count = count - 1;
             }
+            foreach (string cl in currentClasses) { studentHistory.Add(cl); }
 
             //area classes
             needed = ClassesOffered(classesNeeded(studentHistory, degreeArea), date);
@@ -231,6 +233,7 @@ namespace WebApplication1.PageSearch
                 count = count - 1;
                 areaN = areaN - 1;
             }
+            foreach (string cl in currentClasses) { studentHistory.Add(cl); }
 
             //elective classes
             needed = ClassesOffered(classesNeeded(studentHistory, degreeElectives), date);
@@ -243,6 +246,7 @@ namespace WebApplication1.PageSearch
                 electiveN = electiveN - 1;
             }
             //foreach (string cl in currentClasses) { studentHistory.Add(cl); }
+            foreach (string cl in currentClasses) { studentHistory.Add(cl); }
 
             return currentClasses;
         }

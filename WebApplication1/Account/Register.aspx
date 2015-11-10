@@ -89,6 +89,11 @@
 			&nbsp;<asp:Button ID="RegisterBtn" runat="server" Text="   Register   " OnClick="CreateUser_Click" BackColor="#70C600" CssClass="btn-submit" Font-Bold="True" Font-Size="Small"/>
  
 		</div>
+         </div>   
+              <p>
+                  <a href="/Account/Login">Already registered? login here</a>
+              </p>
+		</div>
 	</div>
 	<div class="clear"></div>
 </div>

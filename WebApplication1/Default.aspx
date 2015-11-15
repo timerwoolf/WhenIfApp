@@ -7,6 +7,9 @@
         <p class="lead">Welcome Future graduates of depaul.  On this website you can calculate how long it will take for you to obtain your degree
             given a specific set conditions
         </p>
+        <div id="faculty" runat="server"><a runat="server" href="~/Faculty">Faculty Services</a>
+        </div>
+
     </div>
 
    

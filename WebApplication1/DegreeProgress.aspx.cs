@@ -91,11 +91,12 @@ namespace WebApplication1
             reload = false;
             var selectedClass = resultsBox.SelectedItem;
 
-            string selection = String.Join(",", selectedClass).TrimEnd();
+            string selectionName = String.Join(",", selectedClass.Text).TrimEnd();
+            string selectionValue = String.Join(",", selectedClass.Value).TrimEnd();
             if (selectedClass != null)
             {
-                savedBox.Items.Add(new ListItem(selection, selection));
-                resultsBox.Items.Remove(selection);
+                savedBox.Items.Add(new ListItem(selectionName, selectionValue));
+                resultsBox.Items.Remove(resultsBox.SelectedItem);
             }
             
         }
@@ -105,11 +106,13 @@ namespace WebApplication1
             reload = false;
             var selectedClass = savedBox.SelectedItem;
 
-            string selection = String.Join(",", selectedClass).TrimEnd();
+
+            string selectionName = String.Join(",", selectedClass.Text).TrimEnd();
+            string selectionValue = String.Join(",", selectedClass.Value).TrimEnd();
             if (selectedClass != null)
             {
-                resultsBox.Items.Add(new ListItem(selection, selection));
-                savedBox.Items.Remove(selection);
+                resultsBox.Items.Add(new ListItem(selectionName, selectionValue));
+                savedBox.Items.Remove(savedBox.SelectedItem);
             }
 
         }
@@ -164,7 +167,7 @@ namespace WebApplication1
 
                 insertCmd.Parameters["@DEGREEID"].Value = userName + depaulID;
                 insertCmd.Parameters["@DEPAULID"].Value = depaulID;
-                insertCmd.Parameters["@COURSEID"].Value = savedBox.Items[i].ToString();
+                insertCmd.Parameters["@COURSEID"].Value = savedBox.Items[i].Value;
 
                 insertCmd.ExecuteNonQuery();
 
@@ -181,8 +184,8 @@ namespace WebApplication1
 
             SqlDataReader rdr;
 
-            string query = "SELECT * FROM test.course " +
-            "WHERE courseID like @SEARCH_STRING + '%'";
+            string query = "SELECT CourseDescription, CourseNumber, url FROM wi.tbl_course " +
+            "WHERE CourseNumber like @SEARCH_STRING + '%'";
 
             SqlCommand cmd = new SqlCommand(query, MyConnection);
             cmd.Parameters.Add("@SEARCH_STRING", System.Data.SqlDbType.VarChar);
@@ -191,12 +194,17 @@ namespace WebApplication1
 
             rdr = cmd.ExecuteReader();
 
+            
+
             while (rdr.Read())
             {
-                ListItem Item = new ListItem(rdr.GetString(0), rdr.GetString(0));
+                String courseDesc = rdr.GetString(0);
+                String courseNumber = rdr.GetString(1);
+
+                ListItem Item = new ListItem(courseNumber + " - " + courseDesc, courseNumber);
                 if (!savedBox.Items.Contains(Item))
                 {
-                    resultsBox.Items.Add(new ListItem(rdr.GetString(0), rdr.GetString(0)));
+                    resultsBox.Items.Add(Item);
                 }
             }
 

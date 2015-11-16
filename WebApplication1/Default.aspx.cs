@@ -56,6 +56,7 @@ namespace WebApplication1
             }
 
             rdr.Close();
+            MyConnection.Close();
             if (facultyState == 1)
             {
                 return true;

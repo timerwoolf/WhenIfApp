@@ -21,7 +21,10 @@
                 &nbsp;&nbsp;&nbsp;<asp:Button ID="searchBtn" runat="server" Text="   Search   " OnClick="StudentSearch" BackColor="#70C600" CssClass="btn-submit" Font-Bold="True" Font-Size="Small" style=" left:50%;"/>
                 <br  />
                 <asp:ListBox name="savedBox" ID="savedBox" runat="server" CssClass="resultBox" style=" width: 60%;  margin: auto;" >
-                </asp:ListBox><br />
+                </asp:ListBox><br /><br />
+                 &nbsp;&nbsp;&nbsp;<asp:Button ID="selectBtn" runat="server" Text="   Select  " OnClick="StudentSelect" BackColor="#70C600" CssClass="btn-submit" Font-Bold="True" Font-Size="Small" style=" left:50%;"/>
+
+                <br /><asp:ListBox name="studentDegreeBox" ID="studentDegreeBox" runat="server" CssClass="resultBox" style=" width: 60%;  margin: auto;"></asp:ListBox><br />
                 <br />
                <br  />
            

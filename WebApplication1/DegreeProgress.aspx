@@ -9,6 +9,7 @@
                 <ul>
                   <li><a href="DegreeProgress">Degree Progress</a></li>
                   <li><a href="Calculator">Calculator</a></li>
+                  <li><a href="ClassSearch">ClassSearch</a></li>
                 </ul>
             </div>
              <div id="calc-title" >

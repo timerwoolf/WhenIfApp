@@ -169,6 +169,7 @@
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
+    <Content Include="ClassSearch.aspx" />
     <Content Include="DegreeProgress.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
@@ -348,6 +349,13 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="ClassSearch.aspx.cs">
+      <DependentUpon>ClassSearch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ClassSearch.aspx.designer.cs">
+      <DependentUpon>ClassSearch.aspx</DependentUpon>
+    </Compile>
     <Compile Include="DegreeProgress.aspx.cs">
       <DependentUpon>DegreeProgress.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

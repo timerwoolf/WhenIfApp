@@ -251,6 +251,21 @@ namespace WebApplication1
             else date[1] = date[1] + 1;
         }
 
+        // increments global var date by quarter, skips summer sessions
+        protected void incrementDateNoSummer()
+        {
+            if (date[1] >= 5)
+            {
+                date[0] = date[0] + 1;
+                date[1] = 1;
+            }
+            else if (date[1] == 2 || date[1] == 3 || date[1] == 4)
+            {
+                date[1] = 5;
+            }
+            else date[1] = date[1] + 1;
+        }
+
         //fills selected values needed for search from dropdownlists
         protected void fillSearchInfo()
         {
@@ -662,8 +677,11 @@ namespace WebApplication1
                 {
                     resultsBox.Items.Add(new ListItem(cl, cl));
                 }
-                incrementDate();
 
+                if (ddlSummerN.SelectedValue == "0")
+                    incrementDateNoSummer();
+                else
+                    incrementDate();
                 if (i > 50) break;
 
             }

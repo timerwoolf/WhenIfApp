@@ -43,6 +43,12 @@ namespace WebApplication1
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            //switch to searchTab
+            SearchTab.CssClass = "Clicked";
+            ResultTab.CssClass = "Initial";
+            //SavedTab.CssClass = "Initial";
+            MainView.ActiveViewIndex = 0;
+
             if (IsPostBack)
             {
                 reload = false;
@@ -193,6 +199,7 @@ namespace WebApplication1
                 fillSearchInfo();
                 fillStudentInfo();
                 fillDegreeInfo();
+                MergeStudentDegreeInfo();
                 RunSearch();
 
                 //switch to result view
@@ -202,6 +209,35 @@ namespace WebApplication1
                 MainView.ActiveViewIndex = 1;
             }
 
+        }
+
+        //removes degree requirements already fullfilled in studentHistory
+        protected void MergeStudentDegreeInfo()
+        {    
+            foreach(string cl in studentHistory)
+            {
+                bool UnusedCl = true;
+                foreach (int ReqID in introReqID)
+                {
+                    if (ReqIDNumberNeeded[ReqID]>0 && ReqIDClassesNeeded[ReqID].Contains(cl))
+                    {
+                        UnusedCl = false;
+                        ReqIDClassesNeeded[ReqID].Remove(cl);
+                        ReqIDNumberNeeded[ReqID] = ReqIDNumberNeeded[ReqID] - 1;
+
+                        if (ReqIDNumberNeeded[ReqID] < 1) introNeeded = false;
+                    }
+                }
+                foreach (int ReqID in mainReqID)
+                {
+                    if (UnusedCl && ReqIDNumberNeeded[ReqID] > 0 && ReqIDClassesNeeded[ReqID].Contains(cl))
+                    {
+                        UnusedCl = false;
+                        ReqIDClassesNeeded[ReqID].Remove(cl);
+                        ReqIDNumberNeeded[ReqID] = ReqIDNumberNeeded[ReqID] - 1;
+                    }
+                }
+            }
         }
 
         // increments global var date by quarter

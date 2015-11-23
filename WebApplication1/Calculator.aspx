@@ -24,8 +24,6 @@
               OnClick="SearchTab_Click" />
           <asp:Button Text="Results" BorderStyle="None" ID="ResultTab" CssClass="Initial" runat="server"
               OnClick="ResultTab_Click" />
-          <asp:Button Text="Saved Searches" BorderStyle="None" ID="SavedTab" CssClass="Initial" runat="server"
-              OnClick="SavedTab_Click" />
           <asp:MultiView ID="MainView" runat="server">
             <asp:View ID="SearchView" runat="server">
               <table style="width: 100%; border-width: 1px; border-color: #666; border-style: solid">
@@ -75,7 +73,7 @@
                     Starting Quarter:
                     <asp:DropDownList ID="ddlQtrStart" runat="server">
                         <asp:ListItem Text="-" Value="-1"></asp:ListItem>
-                        <asp:ListItem Text="Fall" Value="0"></asp:ListItem>
+                        <asp:ListItem Text="Fall" Value="5"></asp:ListItem>
                         <asp:ListItem Text="Winter" Value="1"></asp:ListItem>
                         <asp:ListItem Text="Spring" Value="2"></asp:ListItem>
                         <asp:ListItem Text="Summer" Value="3"></asp:ListItem>
@@ -95,7 +93,8 @@
                         <asp:ListItem Text="2023" Value="2023"></asp:ListItem>
                     </asp:DropDownList>
                     <br />
-                    <asp:Button ID="searchBtn" runat="server" Text="   Search   " OnClick="RunSearch" BackColor="#70C600" CssClass="btn-submit" Font-Bold="True" Font-Size="Small" style=" left:50%;"/>
+                    <asp:Button ID="searchBtn" runat="server" Text="   Search   " OnClick="RunSearch_Click" BackColor="#70C600" CssClass="btn-submit" Font-Bold="True" Font-Size="Small" style=" left:50%;"/>
+                    <asp:Literal runat="server" ID="ErrorMessage"  />
                 </div>
                     
                   </td>
@@ -103,23 +102,14 @@
               </table>
             </asp:View>
             <asp:View ID="ResultView" runat="server">
-              <table style="width: 100%; border-width: 1px; border-color: #666; border-style: solid">
+              <table style="height: 100%; width: 100%; border-width: 1px; border-color: #666; border-style: solid">
                 <tr>
                   <td>
                     <h3>
-                      View 2
                     </h3>
-                  </td>
-                </tr>
-              </table>
-            </asp:View>
-            <asp:View ID="View3" runat="server">
-              <table style="width: 100%; border-width: 1px; border-color: #666; border-style: solid">
-                <tr>
-                  <td>
-                    <h3>
-                      View 3
-                    </h3>
+                      <p>--------------------------------- Results --------------------------------- </p>
+                      <asp:ListBox name="resultBox" ID="resultsBox" runat="server" CssClass="resultBox" style=" height: 280px; width: 100%;  margin: auto;" >
+                      </asp:ListBox>
                   </td>
                 </tr>
               </table>
